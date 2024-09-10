@@ -5,23 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/xsal.png">
     <title>Student Record System</title>
+
+    <!-- Google Fonts Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    
+    <!-- Bootstrap CSS (From CDN) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Font Awesome CSS (Local or CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Local CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
-    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    
-    
-    <style>
-        body {
-            font-family: 'Times New Roman', serif;
-        }
-        .main-wrapper, .header, .sidebar, .sidebar-menu {
-            font-family: 'Times New Roman', serif;
-        }
-    </style>
 </head>
 <body>
     <div class="main-wrapper">
@@ -53,13 +51,13 @@
                             <a href="dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
                         <li>
-                            <a href="manage-course.php"><i class="fa fa-book"></i> <span>Manage Course</span></a>
+                            <a href="manage-course.php"><i class="fa fa-graduation-cap"></i> <span>Manage Course</span></a>
                         </li>
                         <li>
                             <a href="manage-student.php"><i class="fa fa-users"></i> <span>Manage Student</span></a>
                         </li>
                         <li>
-                            <a href="change-password.php"><i class="fa fa-lock"></i> <span>Change Password</span></a>
+                            <a href="change-password.php"><i class="fa fa-key"></i> <span>Change Password</span></a>
                         </li>
                         <li>
                             <a href="logout.php"><i class="fa fa-sign-out"></i> <span>Logout</span></a>
@@ -70,9 +68,9 @@
         </div>
     </div>
 
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <!-- Bootstrap JS and dependencies (From CDN) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

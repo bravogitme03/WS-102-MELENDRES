@@ -44,7 +44,7 @@ if(isset($_REQUEST['change-pwd']))
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     
-    <!-- Inline CSS to set the font to Times New Roman -->
+    
     <style>
         body {
             font-family: 'Times New Roman', serif;

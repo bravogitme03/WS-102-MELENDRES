@@ -1,70 +1,100 @@
-<?php
+<?php 
 session_start();
-
-if (empty($_SESSION['name'])) {
+if(empty($_SESSION['name']))
+{
     header('location:index.php');
-    exit();
 }
-
 include('header.php');
 include('includes/connection.php');
 
 $id = $_GET['id'];
-if (isset($_POST['update-course'])) {
-    $course_name = $_POST['course'];
-    $description = $_POST['description'];
-    $status = $_POST['status'];
+$fetch_query = mysqli_query($connection, "select * from tbl_course where id='$id'");
+$row = mysqli_fetch_array($fetch_query);
 
-    $update_query = mysqli_query($connection, "UPDATE tbl_course SET course='$course_name', description='$description', status='$status' WHERE id='$id'");
-    if ($update_query) {
-        $msg = "Course updated successfully!";
-        header('Location: manage-course.php'); 
-        exit();
-    } else {
-        $msg = "Failed to update course. Please try again.";
-    }
-}
+if(isset($_REQUEST['save-course']))
+{
+      $course_name = $_REQUEST['course_name'];
+      $description = $_REQUEST['description'];
+      $status = $_REQUEST['status'];
 
-$course_query = mysqli_query($connection, "SELECT * FROM tbl_course WHERE id='$id'");
-$course = mysqli_fetch_assoc($course_query);
+      $update_query = mysqli_query($connection, "update tbl_course set course='$course_name', description='$description', status='$status' where id='$id'");
+      if($update_query>0)
+      {
+          $msg = "Course updated successfully.";
+          $fetch_query = mysqli_query($connection, "select * from tbl_course where id='$id'");
+          $row = mysqli_fetch_array($fetch_query);   
+      }
+      else
+      {
+          $msg = "Error!";
+      }
+  }
+
 ?>
-
-<div class="page-wrapper">
-    <div class="content">
-        <div class="row">
-            <div class="col-sm-4 col-3">
-                <h4 class="page-title">Edit Course</h4>
-            </div>
-            <div class="col-sm-8 col-9 text-right m-b-20">
-                <a href="manage-course.php" class="btn btn-primary btn-rounded float-right"><i class="fa fa-arrow-left"></i> Back</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <form method="post">
-                    <?php if (isset($msg)) { echo "<div class='alert alert-info'>$msg</div>"; } ?>
-                    <div class="form-group">
-                        <label>Course Name</label>
-                        <input class="form-control" type="text" name="course" value="<?php echo htmlspecialchars($course['course']); ?>" required>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 ">
+                        <h4 class="page-title">Edit Course</h4>
                     </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea class="form-control" name="description" required><?php echo htmlspecialchars($course['description']); ?></textarea>
+                    <div class="col-sm-8  text-right m-b-20">
+                        <a href="manage-course.php" class="btn btn-primary btn-rounded float-right">Back</a>
                     </div>
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select class="form-control" name="status">
-                            <option value="1" <?php if ($course['status'] == 1) echo 'selected'; ?>>Active</option>
-                            <option value="0" <?php if ($course['status'] == 0) echo 'selected'; ?>>Inactive</option>
-                        </select>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <form method="post">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Course Name <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="course_name" value="<?php  echo $row['course'];  ?>" required>
+                                    </div>
+                                </div>
+                                
+								<div class="col-sm-6">
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="form-group">
+												<label>Description <span class="text-danger">*</span></label>
+												<input type="text" class="form-control" name="description" value="<?php echo $row['description']; ?>">
+											</div>
+										</div>
+									</div>
+								</div>
+                                </div>
+							
+                            <div class="form-group">
+                                <label class="display-block">Status</label>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="status" id="course_active" value="1" <?php if($row['status']==1) { echo 'checked' ; } ?>>
+									<label class="form-check-label" for="course_active">
+									Active
+									</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="status" id="course_inactive" value="0" <?php if($row['status']==0) { echo 'checked' ; } ?>>
+									<label class="form-check-label" for="course_inactive">
+									Inactive
+									</label>
+								</div>
+                            </div>
+                            <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn" name="save-course">Save</button>
+                            </div>
+                        </form>
                     </div>
-                    <button type="submit" name="update-course" class="btn btn-primary">Update Course</button>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<?php
+		 </div>
+<?php 
 include('footer.php');
 ?>
+<script type="text/javascript">
+     <?php
+        if(isset($msg)) {
+
+              echo 'swal("' . $msg . '");';
+          }
+     ?>
+</script> 
