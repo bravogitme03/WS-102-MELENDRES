@@ -48,7 +48,7 @@
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
                         <li class="active">
-                            <a href="dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                            <a href="dashboard.php"><i class="fa fa-desktop"></i> <span>Dashboard</span></a>
                         </li>
                         <li>
                             <a href="manage-course.php"><i class="fa fa-graduation-cap"></i> <span>Manage Course</span></a>
@@ -60,7 +60,7 @@
                             <a href="change-password.php"><i class="fa fa-key"></i> <span>Change Password</span></a>
                         </li>
                         <li>
-                            <a href="logout.php"><i class="fa fa-sign-out"></i> <span>Logout</span></a>
+                            <a href="logout.php"><i class="fa fa-power-off"></i> <span>Logout</span></a>
                         </li>
                     </ul>
                 </div>
