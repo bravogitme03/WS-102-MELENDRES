@@ -20,6 +20,26 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- Inline CSS for dark header -->
+    <style>
+        .header {
+            background-color: #343a40; /* Dark gray background color */
+            color: #ffffff; /* White text color */
+        }
+        .header .logo span {
+            color: #ffffff; /* White text color for logo span */
+        }
+        .header .nav-link {
+            color: #ffffff; /* White text color for nav links */
+        }
+        .header .nav-link:hover {
+            color: #d1d1d1; /* Lighter gray color on hover */
+        }
+        .header .user-img img {
+            border: 2px solid #ffffff; /* White border for user image */
+        }
+    </style>
 </head>
 <body>
     <div class="main-wrapper">

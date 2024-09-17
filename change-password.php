@@ -52,6 +52,11 @@ if(isset($_REQUEST['change-pwd']))
         .page-wrapper, .content, .form-group, .btn {
             font-family: 'Times New Roman', serif;
         }
+
+        .header {
+            background-color: #343a40; /* Dark background color */
+            
+        }
     </style>
 </head>
 <body>

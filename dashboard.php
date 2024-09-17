@@ -19,6 +19,11 @@ include('includes/connection.php');
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <style>
+        .header {
+            background-color: #343a40; /* Dark background color */
+            
+        }
+
         .page-wrapper {
             padding: 20px;
         }
@@ -82,6 +87,7 @@ include('includes/connection.php');
         .widget-chart {
             margin-top: 20px;
         }
+    </style>
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
